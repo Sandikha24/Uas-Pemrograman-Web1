@@ -15,11 +15,30 @@
 	</form>
 </div>
 
-<style>
-	#uni_modal .modal-footer{
-		display:none;
-	}
-</style>
+function login($email, $password) {
+    $conn = db_connect();
+
+    $stmt = mysqli_prepare($conn, "SELECT id, password FROM users WHERE email = ?");
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+       
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            return true;
+        } else {
+            return "Incorrect password";
+        }
+    } else {
+        return "User not found";
+    }
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+}
+
 
 <script>
 	$('#new_account').click(function(){
