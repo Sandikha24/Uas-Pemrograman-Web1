@@ -10,25 +10,24 @@ include "header.php";
 <style>
 
 .row-checkout {
-  display: -ms-flexbox; /* IE10 */
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
   margin: 0 -16px;
 }
 
+
 .col-25 {
-  -ms-flex: 25%; /* IE10 */
+  -ms-flex: 25%; 
   flex: 25%;
 }
 
 .col-50 {
-  -ms-flex: 50%; /* IE10 */
+  -ms-flex: 50%; 
   flex: 50%;
 }
 
 .col-75 {
-  -ms-flex: 75%; /* IE10 */
+  -ms-flex: 75%; 
   flex: 75%;
 }
 
@@ -91,7 +90,7 @@ span.price {
   color: grey;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+
 @media (max-width: 800px) {
   .row-checkout {
     flex-direction: column-reverse;
@@ -111,6 +110,18 @@ span.price {
 			$sql = "SELECT * FROM user_info WHERE user_id='$_SESSION[uid]'";
 			$query = mysqli_query($con,$sql);
 			$row=mysqli_fetch_array($query);
+
+		if (isset($_POST['total_count'])) {
+    $total_count = $_POST['total_count'];
+} else {
+    echo "<script>alert('Invalid request');</script>";
+    exit();
+}
+
+		if (!$query) {
+    die("Database query salah" . mysqli_error($con));
+}
+
 		
 		echo'
 			<div class="col-75">
