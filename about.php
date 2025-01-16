@@ -7,7 +7,6 @@
       <div class="col-md-6">
         <h2 class="text-center">About Us</h2>
         <?php echo html_entity_decode($_SESSION['system']['about_content']) ?>
-      </div>
     </div>
   </div>
 </section>   
