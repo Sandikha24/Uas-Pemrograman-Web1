@@ -36,3 +36,60 @@ section{
   padding:2rem;
 }
 
+.btn,
+.option-btn,
+.delete-btn{
+   display: block;
+   width: 100%;
+   text-align: center;
+   background-color: var(--blue);
+   color:var(--white);
+   font-size: 1.7rem;
+   padding:1.2rem 3rem;
+   border-radius: .5rem;
+   cursor: pointer;
+   margin-top: 1rem;
+}
+
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover{
+   background-color: var(--black);
+}
+
+.option-btn{
+  background-color: var(--orange);
+}
+
+.delete-btn{
+  margin-top: 0;
+  background-color: var(--red);
+}
+
+.add-product-form{
+  max-width: 50rem;
+  background-color: var(--bg-color);
+  border-radius: .5rem;
+  padding:2rem;
+  margin:0 auto;
+  margin-top: 2rem;
+}
+
+.add-product-form h3{
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color:var(--black);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.add-product-form .box{
+  text-transform: none;
+  padding:1.2rem 1.4rem;
+  font-size: 1.7rem;
+  color:var(--black);
+  border-radius: .5rem;
+  background-color: var(--white);
+  margin:1rem 0;
+  width: 100%;
+}
