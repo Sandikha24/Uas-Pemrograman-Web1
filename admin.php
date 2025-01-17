@@ -14,6 +14,18 @@
 
 </head>
 <body>
+   
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message"><span>'.$message.'</span> <i class="fas fa-times" onclick="this.parentElement.style.display = `none`;"></i> </div>';
+   };
+};
+
+?>
+
+<?php include 'header.php'; ?>
 
 <div class="container">
 
@@ -26,6 +38,76 @@
    <input type="file" name="p_image" accept="image/png, image/jpg, image/jpeg" class="box" required>
    <input type="submit" value="add the product" name="add_product" class="btn">
 </form>
+
+</section>
+
+<section class="display-product-table">
+
+   <table>
+
+      <thead>
+         <th>product image</th>
+         <th>product name</th>
+         <th>product price</th>
+         <th>action</th>
+      </thead>
+
+      <tbody>
+         <?php
+         
+            $select_products = mysqli_query($conn, "SELECT * FROM `products`");
+            if(mysqli_num_rows($select_products) > 0){
+               while($row = mysqli_fetch_assoc($select_products)){
+         ?>
+
+         <tr>
+            <td><img src="uploaded_img/<?php echo $row['image']; ?>" height="100" alt=""></td>
+            <td><?php echo $row['name']; ?></td>
+            <td>$<?php echo $row['price']; ?>/-</td>
+            <td>
+               <a href="admin.php?delete=<?php echo $row['id']; ?>" class="delete-btn" onclick="return confirm('are your sure you want to delete this?');"> <i class="fas fa-trash"></i> delete </a>
+               <a href="admin.php?edit=<?php echo $row['id']; ?>" class="option-btn"> <i class="fas fa-edit"></i> update </a>
+            </td>
+         </tr>
+
+         <?php
+            };    
+            }else{
+               echo "<div class='empty'>no product added</div>";
+            };
+         ?>
+      </tbody>
+   </table>
+
+</section>
+
+<section class="edit-form-container">
+
+   <?php
+   
+   if(isset($_GET['edit'])){
+      $edit_id = $_GET['edit'];
+      $edit_query = mysqli_query($conn, "SELECT * FROM `products` WHERE id = $edit_id");
+      if(mysqli_num_rows($edit_query) > 0){
+         while($fetch_edit = mysqli_fetch_assoc($edit_query)){
+   ?>
+
+   <form action="" method="post" enctype="multipart/form-data">
+      <img src="uploaded_img/<?php echo $fetch_edit['image']; ?>" height="200" alt="">
+      <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['id']; ?>">
+      <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['name']; ?>">
+      <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['price']; ?>">
+      <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
+      <input type="submit" value="update the prodcut" name="update_product" class="btn">
+      <input type="reset" value="cancel" id="close-edit" class="option-btn">
+   </form>
+
+   <?php
+            };
+         };
+         echo "<script>document.querySelector('.edit-form-container').style.display = 'flex';</script>";
+      };
+   ?>
 
 </section>
 
@@ -45,9 +127,8 @@
 
 
 
-<!-- custom js file link -->
+<!-- custom js file link  -->
 <script src="js/script.js"></script>
-
 
 </body>
 </html>
