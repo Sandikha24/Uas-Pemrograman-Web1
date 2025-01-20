@@ -44,7 +44,7 @@ form input[type="password"] {
     height: 45px;
     width: 360px;
     outline: 0;
-    -moz-outline-style: none;
+    outline-style: none;
 }
 
 form input[type="text"] {
