@@ -70,8 +70,7 @@ $buku = $koneksi->query("SELECT * FROM buku");
 
     <section class="motivasi" id="motivasi">
         <h3 class="title">Bacalah Buku Biar Berilmu</h3>
-        <p> Membaca adalah pintu gerbang menuju imajinasi dan kreativitas    
-        </p>
+        <p> Membaca adalah pintu gerbang menuju imajinasi dan kreativitas</p>
     </section>
     <footer>
         <p>Beli Buku</p>
