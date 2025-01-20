@@ -69,10 +69,8 @@ $buku = $koneksi->query("SELECT * FROM buku");
 
 
     <section class="motivasi" id="motivasi">
-        <h3 class="title">Bacalah Buku Biar Berilmu, Seperti Pepatah China Mengatakan</h3>
-        <p> 学问渊博的人，懂了还要问; 学问浅薄的人，不懂也不问 一天不练手脚慢，两天不练丢一半，三天不练门外汉，四天不练瞪眼看
-        有时候，你不懂得欣赏爱你，全心全意谁的人，直到，直到你失去它。当时，这是没用的，因为后悔也不用心碎一次。
-        你爱一个人面部/面部，他的财富和地位，但心爱的他的善良和他的诚意，因为这一切之中，只是善良和真诚的他的心脏依然存在。    
+        <h3 class="title">Bacalah Buku Biar Berilmu</h3>
+        <p> Membaca adalah pintu gerbang menuju imajinasi dan kreativitas    
         </p>
     </section>
     <footer>
