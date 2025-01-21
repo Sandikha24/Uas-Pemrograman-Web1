@@ -23,7 +23,7 @@ $buku = $koneksi->query("SELECT * FROM buku");
             class="background-image"></div>
         <div class="hero-content-area">
             <h1>Beli Buku</h1>
-            <h3>Tambah Pengetahan dengan membaca buku</h3>
+            <h3>Tambah Pengetahuan dengan membaca buku</h3>
             <a href="#content" class="btn">Beli Sekarang!!!</a>
         </div>
     </section>
